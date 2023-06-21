@@ -1,9 +1,8 @@
 export const Product = ({ product }) => {
   const { name, id } = product;
   const { title, icon } = product.category;
-  const { user } = product.user;
-  const userName = user ? user.name : null;
-  const userSex = user ? user.sex : null;
+  const userName = product.user ? product.user.name : null;
+  const userSex = product.user ? product.user.sex : null;
 
   return (
     <tr data-cy="Product">
