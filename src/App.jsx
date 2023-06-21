@@ -6,7 +6,8 @@ import categoriesFromServer from './api/categories';
 import productsFromServer from './api/products';
 
 function getProduct(categoryId) {
-  const foundProduct = categoriesFromServer.find(category => category.id === categoryId);
+  const foundProduct = categoriesFromServer
+    .find(category => category.id === categoryId);
 
   return foundProduct || null;
 }
@@ -37,9 +38,10 @@ export const App = () => {
 
   const filteredProducts = productlist.filter((product) => {
     const userName = product.user ? product.user.name : '';
+
     return (
-      (selectedUser === null || product.user?.id === selectedUser) &&
-      userName.toLowerCase().includes(filterQuery.toLowerCase())
+      (selectedUser === null || product.user?.id === selectedUser)
+      && userName.toLowerCase().includes(filterQuery.toLowerCase())
     );
   });
 
@@ -61,7 +63,7 @@ export const App = () => {
               >
                 All
               </a>
-              {usersFromServer.map((user) => (
+              {usersFromServer.map(user => (
                 <a
                   data-cy="FilterUser"
                   href="#/"
@@ -91,7 +93,11 @@ export const App = () => {
 
                 <span className="icon is-right">
                   {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
-                  <button data-cy="ClearButton" type="button" className="delete" />
+                  <button
+                    data-cy="ClearButton"
+                    type="button"
+                    className="delete"
+                  />
                 </span>
               </p>
             </div>
@@ -105,18 +111,34 @@ export const App = () => {
                 All
               </a>
 
-              <a data-cy="Category" className="button mr-2 my-1 is-info" href="#/">
+              <a
+                data-cy="Category"
+                className="button mr-2 my-1 is-info"
+                href="#/"
+              >
                 Category 1
               </a>
 
-              <a data-cy="Category" className="button mr-2 my-1" href="#/">
+              <a
+                data-cy="Category"
+                className="button mr-2 my-1"
+                href="#/"
+              >
                 Category 2
               </a>
 
-              <a data-cy="Category" className="button mr-2 my-1 is-info" href="#/">
+              <a
+                data-cy="Category"
+                className="button mr-2 my-1 is-info"
+                href="#/"
+              >
                 Category 3
               </a>
-              <a data-cy="Category" className="button mr-2 my-1" href="#/">
+              <a
+                data-cy="Category"
+                className="button mr-2 my-1"
+                href="#/"
+              >
                 Category 4
               </a>
             </div>
@@ -134,7 +156,11 @@ export const App = () => {
         </div>
 
         <div className="box table-container">
-          <p data-cy="NoMatchingMessage">No products matching selected criteria</p>
+          <p
+            data-cy="NoMatchingMessage"
+          >
+            No products matching selected criteria
+          </p>
 
           <table
             data-cy="ProductTable"

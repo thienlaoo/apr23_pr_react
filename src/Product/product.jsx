@@ -1,7 +1,7 @@
 export const Product = ({ product }) => {
   const { name, id } = product;
   const { title, icon } = product.category;
-  const user = product.user;
+  const { user } = product.user;
   const userName = user ? user.name : null;
   const userSex = user ? user.sex : null;
 
@@ -14,14 +14,14 @@ export const Product = ({ product }) => {
       <td data-cy="ProductCategory">{`${icon} - ${title}`}</td>
       <td
         data-cy="ProductUser"
-        className={userSex === 'm' ? 'has-text-link' : userSex ? 'has-text-danger' : ''}
+        className={userSex === 'm'
+          ? 'has-text-link' : (userSex && 'has-text-danger')}
       >
         {userName || 'N/A'}
       </td>
     </tr>
   );
 };
-
 
 /* export const Product = ({ product }) => {
   const { name, user, id } = product;
